@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap");
+
+@layer base {
+  body {
+    @apply bg-paper-cream text-gray-800;
+  }
+}
+
+@layer components {
+  .scrapbook-page {
+    @apply bg-white shadow-lg rounded-lg p-6 border-2 border-amber-200;
+  }
+
+  .book-card {
+    @apply bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg shadow-md hover:shadow-lg transition-shadow;
+  }
+}
