@@ -3,83 +3,101 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      // Cores específicas do nosso design planner
       colors: {
-        // Fiction Category
-        fiction: {
-          primary: "#4a6fa5",
-          secondary: "#5d7bb5",
-          accent: "#ff6b9d",
-          yellow: "#ffd93d",
-          green: "#6bcf7f",
+        // Paleta principal baseada na referência
+        planner: {
+          bg: "#8ba8c7", // Cor de fundo principal
+          "bg-light": "#a8c0d4", // Variação mais clara
+          cover: "#7a95b0", // Cor da capa
+          "cover-light": "#95adc4", // Variação da capa
+          elastic: "#2c5282", // Cor do elástico
+          "elastic-light": "#3182ce", // Highlight do elástico
         },
-        // Romance Category
-        romance: {
-          primary: "#667eea",
-          secondary: "#764ba2",
-          accent: "#ff9a9e",
-          pastel: "#fecfef",
-          cream: "#ffeaa7",
+
+        // Cores para elementos decorativos
+        bow: {
+          primary: "#f6e05e", // Amarelo do laço
+          secondary: "#ecc94b", // Amarelo mais escuro
+          center: "#d69e2e", // Centro do laço
         },
-        // Mystery Category
-        mystery: {
-          primary: "#56ab2f",
-          secondary: "#a8e6cf",
-          accent: "#fd79a8",
-          orange: "#e17055",
-          mustard: "#fdcb6e",
+
+        // Cores das estrelas decorativas
+        star: {
+          green: "#68d391",
+          blue: "#63b3ed",
+          pink: "#f687b3",
         },
-        // Neutral Colors
-        neutral: {
-          primary: "#2c3e50",
-          secondary: "#34495e",
-          light: "#ecf0f1",
-          accent: "#95a5a6",
-        },
-        // Global Accents
-        accent: {
-          yellow: "#ffd93d",
-          green: "#6bcf7f",
-          pink: "#ff6b9d",
-          coral: "#ff9a9e",
-          cream: "#ffeaa7",
+
+        // Cores dos botões circulares
+        button: {
+          "pink-light": "#f687b3",
+          "pink-dark": "#ed64a6",
+          "coral-light": "#fed7d7",
+          "coral-dark": "#fc8181",
         },
       },
+
+      // Fontes que usaremos
       fontFamily: {
-        handwritten: ["Caveat", "cursive"],
-        serif: ["Georgia", "serif"],
-        sans: ["Inter", "sans-serif"],
-        display: ["Poppins", "sans-serif"],
+        elegant: ["Playfair Display", "serif"], // Para títulos elegantes
+        body: ["Inter", "sans-serif"], // Para texto corpo
       },
-      animation: {
-        float: "float 6s ease-in-out infinite",
-        gradient: "gradient 3s ease infinite",
-        "fade-in": "fadeIn 0.5s ease-in",
-        "slide-up": "slideUp 0.5s ease-out",
-      },
+
+      // Animações personalizadas
       keyframes: {
-        float: {
-          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
-          "50%": { transform: "translateY(-10px) rotate(5deg)" },
+        // Animação de piscar das estrelas
+        twinkle: {
+          "0%, 100%": {
+            opacity: "0.3",
+            transform: "scale(1)",
+          },
+          "50%": {
+            opacity: "0.8",
+            transform: "scale(1.1)",
+          },
         },
-        gradient: {
-          "0%, 100%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-        },
-        fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
-        slideUp: {
-          "0%": { transform: "translateY(20px)", opacity: "0" },
-          "100%": { transform: "translateY(0)", opacity: "1" },
+
+        // Animação de entrada suave
+        "fade-up": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(20px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
         },
       },
-      backdropBlur: {
-        xs: "2px",
+
+      animation: {
+        twinkle: "twinkle 3s ease-in-out infinite",
+        "fade-up": "fade-up 0.8s ease-out",
       },
+
+      // Sombras personalizadas para efeitos 3D
       boxShadow: {
-        glassmorphism: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
-        float: "0 25px 80px rgba(0,0,0,0.3)",
+        planner:
+          "0 25px 60px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.1)",
+        elastic: "inset 0 0 4px rgba(0,0,0,0.3), 2px 0 8px rgba(0,0,0,0.15)",
+        frame: "0 8px 25px rgba(0,0,0,0.25)",
+      },
+
+      // Padrões de fundo para textura
+      backgroundImage: {
+        "fabric-texture": `
+          repeating-linear-gradient(45deg, 
+            transparent, transparent 1px, 
+            rgba(255,255,255,0.02) 1px, rgba(255,255,255,0.02) 2px),
+          repeating-linear-gradient(-45deg, 
+            transparent, transparent 1px, 
+            rgba(0,0,0,0.01) 1px, rgba(0,0,0,0.01) 2px)
+        `,
+
+        "planner-gradient": "linear-gradient(135deg, #7a95b0 0%, #95adc4 100%)",
+        "elastic-gradient":
+          "linear-gradient(to right, #2c5282 0%, #3182ce 50%, #2c5282 100%)",
       },
     },
   },
