@@ -1,68 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Georgia:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --glassmorphism-bg: rgba(255, 255, 255, 0.1);
+  --glassmorphism-border: rgba(255, 255, 255, 0.1);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* Base Styles */
+@layer base {
+  body {
+    font-family: "Inter", sans-serif;
+    @apply text-white;
   }
-  a:hover {
-    color: #747bff;
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Caveat", cursive;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+/* Component Utilities */
+@layer components {
+  .glassmorphism {
+    background: var(--glassmorphism-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glassmorphism-border);
+  }
+
+  .journal-background {
+    background: radial-gradient(
+        circle at 20% 30%,
+        rgba(255, 107, 157, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 70%,
+        rgba(107, 207, 127, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 50% 50%,
+        rgba(255, 217, 61, 0.05) 0%,
+        transparent 50%
+      ),
+      linear-gradient(135deg, #4a6fa5 0%, #5d7bb5 100%);
+    background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px
+    );
+    background-size: 30px 30px;
+  }
+
+  .gradient-text {
+    background: linear-gradient(45deg, #ff6b9d, #ffd93d, #6bcf7f, #ff6b9d);
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 3s ease-in-out infinite;
+  }
+}
+
+/* Utilities */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .rotate-slight {
+    transform: rotate(-1deg);
+  }
+
+  .rotate-slight-right {
+    transform: rotate(1deg);
   }
 }
