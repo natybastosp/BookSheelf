@@ -1,0 +1,349 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Cores do Glassmorphism */
+  --glassmorphism-bg: rgba(255, 255, 255, 0.1);
+  --glassmorphism-border: rgba(255, 255, 255, 0.1);
+  --glassmorphism-backdrop: blur(20px);
+
+  /* Timing Functions para Animações Naturais */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
+
+  /* Espaçamentos Harmonicos */
+  --space-unit: 0.25rem; /* 4px base unit */
+  --space-xs: calc(var(--space-unit) * 2); /* 8px */
+  --space-sm: calc(var(--space-unit) * 3); /* 12px */
+  --space-md: calc(var(--space-unit) * 4); /* 16px */
+  --space-lg: calc(var(--space-unit) * 6); /* 24px */
+  --space-xl: calc(var(--space-unit) * 8); /* 32px */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 
+  Configurações do Body
+  
+  Estabelecemos aqui as configurações tipográficas padrão
+  e comportamentos base para toda a aplicação.
+*/
+body {
+  /* Tipografia padrão */
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+
+  /* Anti-aliasing para melhor renderização de fontes */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Configurações de texto */
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
+
+  /* Remove margem padrão do navegador */
+  margin: 0;
+  padding: 0;
+
+  /* Previne overflow horizontal */
+  overflow-x: hidden;
+}
+
+.glassmorphism {
+  background: var(--glassmorphism-bg);
+  backdrop-filter: var(--glassmorphism-backdrop);
+  -webkit-backdrop-filter: var(--glassmorphism-backdrop);
+  border: 1px solid var(--glassmorphism-border);
+}
+
+.fabric-texture {
+  background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 1px,
+      rgba(255, 255, 255, 0.02) 1px,
+      rgba(255, 255, 255, 0.02) 2px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 1px,
+      rgba(0, 0, 0, 0.01) 1px,
+      rgba(0, 0, 0, 0.01) 2px
+    );
+}
+
+/* 
+  Texto com Gradiente Animado
+  
+  Cria o efeito de texto com cores que se movem, usado
+  nos títulos principais.
+*/
+.gradient-text {
+  background: linear-gradient(45deg, #ff6b9d, #ffd93d, #6bcf7f, #ff6b9d);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+/* 
+  =============================================
+  ANIMAÇÕES CUSTOMIZADAS
+  =============================================
+  
+  Definimos aqui animações que não podem ser criadas
+  apenas com as classes do Tailwind.
+*/
+
+/* 
+  Animação para Texto com Gradiente
+  
+  Faz o gradiente se mover suavemente, criando um
+  efeito dinâmico nos títulos.
+*/
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* 
+  Animação de Piscar (Twinkle)
+  
+  Usada nas estrelas decorativas para criar movimento sutil.
+*/
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+/* 
+  Animação de Entrada Suave
+  
+  Elemento entra deslizando de baixo para cima com fade.
+*/
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 
+  Animação de Flutuação
+  
+  Movimento sutil para cima e para baixo, usado em
+  elementos decorativos para adicionar vida ao design.
+*/
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+/* 
+  =============================================
+  ESTILOS DE SELEÇÃO DE TEXTO
+  =============================================
+  
+  Customizamos como o texto selecionado aparece
+  para manter consistência com nossa paleta de cores.
+*/
+::selection {
+  background-color: rgba(255, 107, 157, 0.3);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: rgba(255, 107, 157, 0.3);
+  color: white;
+}
+
+/* 
+  =============================================
+  SCROLLBAR PERSONALIZADA
+  =============================================
+  
+  Customizamos a scrollbar para integrar melhor
+  com nosso design visual.
+*/
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* 
+  =============================================
+  RESPONSIVE DESIGN HELPERS
+  =============================================
+  
+  Classes utilitárias para ajudar com design responsivo
+  em situações específicas que o Tailwind não cobre.
+*/
+
+/* 
+  Container com Max-Width Responsivo
+  
+  Cria um container que se adapta bem a diferentes tamanhos de tela
+  mantendo proporções harmoniosas.
+*/
+.container-responsive {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-responsive {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* 
+  Aspecto Ratio para Elementos de Mídia
+  
+  Mantém proporções específicas independente do tamanho da tela.
+  Útil para imagens, vídeos, e containers de conteúdo.
+*/
+.aspect-book {
+  aspect-ratio: 2 / 3; /* Proporção típica de livros */
+}
+
+.aspect-photo {
+  aspect-ratio: 4 / 3; /* Proporção típica de fotos */
+}
+
+/* 
+  =============================================
+  UTILITY CLASSES ESPECÍFICAS DO PROJETO
+  =============================================
+  
+  Classes que são específicas para nosso projeto de bookshelf
+  e não se encaixam nas categorias anteriores.
+*/
+
+/* 
+  Sombra Estilo Planner
+  
+  Recria a sombra específica que usamos na capa do planner.
+*/
+.shadow-planner {
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* 
+  Sombra do Elástico
+  
+  Sombra específica para o efeito 3D do elástico.
+*/
+.shadow-elastic {
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3), 2px 0 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 
+  Sombra da Moldura
+  
+  Sombra específica para a moldura dos livros.
+*/
+.shadow-frame {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* 
+  =============================================
+  PRINT STYLES
+  =============================================
+  
+  Estilos para quando a página for impressa.
+  Importante para acessibilidade e profissionalismo.
+*/
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* 
+  =============================================
+  REDUCED MOTION SUPPORT
+  =============================================
+  
+  Respeita a preferência do usuário por movimento reduzido.
+  Importante para acessibilidade e pessoas com sensibilidades.
+*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
