@@ -1,0 +1,52 @@
+flowchart TD
+    A[🏠 Tela Principal<br/>Capa do Caderno] --> B{Usuário clica<br/>para abrir}
+    
+    B --> C[📖 Capa Aberta<br/>Livro Mais Vendido]
+    
+    C --> D[🔥 Filtros de Período]
+    D --> D1[📅 Dia]
+    D --> D2[📅 Semana]  
+    D --> D3[📅 Mês]
+    
+    C --> E[🔖 Marca Páginas<br/>Navegação por Gênero]
+    
+    E --> F[📚 Categorias de Gênero]
+    F --> F1[💕 Romance]
+    F --> F2[🔍 Mistério]
+    F --> F3[⚔️ Fantasia]
+    F --> F4[📖 Ficção]
+    F --> F5[📚 Não-ficção]
+    F --> F6[🧪 Sci-Fi]
+    F --> F7[📜 Outros...]
+    
+    C --> G[🔍 Busca de Livros]
+    G --> H[📝 Campo de Pesquisa]
+    H --> I[📋 Resultados da Busca]
+    
+    F1 --> J[📖 Lista de Livros<br/>do Gênero]
+    F2 --> J
+    F3 --> J
+    F4 --> J
+    F5 --> J
+    F6 --> J
+    F7 --> J
+    
+    I --> K[📖 Detalhes do Livro]
+    J --> K
+    D1 --> L[📊 Livro em Destaque]
+    D2 --> L
+    D3 --> L
+    L --> K
+    
+    K --> M[📄 Página do Livro<br/>Informações Completas]
+    M --> M1[📝 Sinopse]
+    M --> M2[⭐ Avaliações]
+    M --> M3[👤 Autor]
+    M --> M4[📅 Data Publicação]
+    M --> M5[🏷️ Preço]
+    
+    style A fill:#f9d71c,stroke:#333,stroke-width:3px
+    style C fill:#27ae60,stroke:#333,stroke-width:2px
+    style E fill:#3498db,stroke:#333,stroke-width:2px
+    style G fill:#e74c3c,stroke:#333,stroke-width:2px
+    style K fill:#9b59b6,stroke:#333,stroke-width:2px
