@@ -59,9 +59,9 @@
                   </slot>
                 </div>
 
-                <!-- Decorative elements for left page -->
-                <div class="absolute top-4 left-4 text-slate-300">
-                  <Icon name="bookmark" class="w-6 h-6" />
+                <!-- Decorative elements for left page - Using emoji instead of Icon component -->
+                <div class="absolute top-4 left-4 text-slate-300 text-xl">
+                  📖
                 </div>
               </div>
 
@@ -84,9 +84,9 @@
                   </slot>
                 </div>
 
-                <!-- Decorative elements for right page -->
-                <div class="absolute bottom-4 right-4 text-slate-300">
-                  <Icon name="star" class="w-6 h-6" />
+                <!-- Decorative elements for right page - Using emoji instead of Icon component -->
+                <div class="absolute bottom-4 right-4 text-slate-300 text-xl">
+                  ⭐
                 </div>
               </div>
             </div>
